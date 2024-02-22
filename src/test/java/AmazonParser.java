@@ -1,6 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -38,6 +39,9 @@ public class AmazonParser {
         ArrayList<Book> books = new ArrayList<>();
         List<WebElement> bookElements = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("[data-component-type='s-search-result']")));
 
+        // створюємо змінну яка відсліжує чи є на сторінці бестселлер
+        boolean isBestsellerFound = false;
+
         // Проходимо по кожній книжці
         for (WebElement element : bookElements) {
             // Вилучаємо назву
@@ -55,12 +59,13 @@ public class AmazonParser {
                 author = author.substring(0, pipeIndex).trim();
             }
 
-            // Перевіряємо чи являється книга бестселлером
+            // Перевіряємо чи є бадж бестселлера та чи являється книга бестселлером
             boolean isBestseller = false;
             try {
                 WebElement bestsellerElement = element.findElement(By.xpath(".//span[@class='a-badge-text']"));
                 isBestseller = bestsellerElement != null;
-            } catch (Exception e) {
+                isBestsellerFound = true;
+            } catch (NoSuchElementException e) {
 
             }
 
@@ -73,6 +78,10 @@ public class AmazonParser {
 
             books.add(new Book(title, author, price, isBestseller, url));
 
+        }
+
+        if (!isBestsellerFound) {
+            System.out.println("Бестселлера на сторінці немає");
         }
 
         // перевіряємо щоб ліст не був пустим
