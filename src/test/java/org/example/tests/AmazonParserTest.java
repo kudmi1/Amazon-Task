@@ -1,3 +1,4 @@
+package org.example.tests;
 import org.example.*;
 import org.junit.Assert;
 import org.junit.Test;

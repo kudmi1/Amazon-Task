@@ -1,3 +1,5 @@
+package org.example;
+
 import java.time.Duration;
 
 public class Config {
