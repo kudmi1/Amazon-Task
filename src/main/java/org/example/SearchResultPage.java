@@ -46,10 +46,8 @@ public class SearchResultPage {
 
       boolean isBestseller = !element.findElements(By.xpath(".//span[@class='a-badge-text']")).isEmpty();
 
-//      String priceWhole = element.findElement(By.cssSelector("span.a-price-whole")).getText();
       String priceWhole = element.findElement(By.xpath(".//span[@class='a-price-whole']")).getText();
       String priceFraction = element.findElement(By.xpath(".//span[@class='a-price-fraction']")).getText();
-//      String priceFraction = element.findElement(By.cssSelector("span.a-price-fraction")).getText();
       String price = priceWhole + "." + priceFraction;
 
       listOfBooks.add(new Book(title, authorText, price, isBestseller));

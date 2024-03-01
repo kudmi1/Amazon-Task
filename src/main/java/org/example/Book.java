@@ -51,11 +51,11 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Книга {" + "\n" +
-                "Назва: " + title + "\n" +
-                "Автор: " + author + "\n" +
-                "Ціна = " + price + "\n" +
-                "Бестселлер = " + isBestseller + "\n" +
+        return "Book {" + "\n" +
+                "Title: " + title + "\n" +
+                "Author: " + author + "\n" +
+                "Price = " + price + "\n" +
+                "Bestseller = " + isBestseller + "\n" +
                 '}';
     }
 }

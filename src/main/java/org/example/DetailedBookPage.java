@@ -35,11 +35,11 @@ public class DetailedBookPage {
     Book expectedBook = new Book(title, author, price, isBestseller);
 
     // Выводим данные о книге в консоль для отладки
-    System.out.println("Очікувана книга:");
-    System.out.println("Назва: " + expectedBook.getTitle());
-    System.out.println("Автор: " + expectedBook.getAuthor());
-    System.out.println("Ціна: " + expectedBook.getPrice());
-    System.out.println("Бестселлер: " + expectedBook.isBestseller());
+    System.out.println("Expected book:");
+    System.out.println("Title: " + expectedBook.getTitle());
+    System.out.println("Author: " + expectedBook.getAuthor());
+    System.out.println("Price: " + expectedBook.getPrice());
+    System.out.println("Bestseller: " + expectedBook.isBestseller());
 
     return expectedBook;
   }
@@ -57,7 +57,7 @@ public class DetailedBookPage {
       }
 
     } catch (Exception e) {
-      System.out.println("Елемент 'tmm-grid-swatch-KINDLE' НЕ знайдено, шукаємо id 'tmm-grid-swatch-PAPERBACK'");
+      System.out.println("Element 'tmm-grid-swatch-KINDLE' not found, looking for id 'tmm-grid-swatch-PAPERBACK'");
       WebElement paperbackBlock = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("tmm-grid-swatch-PAPERBACK")));
       paperbackBlock.click();
       WebElement paperbackPriceElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span.a-price")));
