@@ -10,6 +10,7 @@ import io.qameta.allure.Issue;
 import io.qameta.allure.Link;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Step;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,12 @@ public class AmazonParserTest extends TestBase {
     DetailedBookPage detailedBookPage = new DetailedBookPage(driver, expectedBookUrl);
 
     Book expectedBook = detailedBookPage.extractBookDetails();
+    // Assert.assertTrue("Expected book not found", listOfBooks.contains(expectedBook));
+    assertBookFound(listOfBooks, expectedBook);
+  
+  }
+  @Step("Assert expected book found")
+  public void assertBookFound(ArrayList<Book> listOfBooks, Book expectedBook) {
     Assert.assertTrue("Expected book not found", listOfBooks.contains(expectedBook));
   }
 }

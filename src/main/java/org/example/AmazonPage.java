@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.qameta.allure.Step;
+
 import java.util.List;
 
 public class AmazonPage {
@@ -18,10 +20,11 @@ public class AmazonPage {
     wait = new WebDriverWait(driver, Config.DURATION);
   }
 
+  @Step("Go to Amazon home page")
   public void goToHomePage() {
     driver.get(Config.AMAZON_URL);
   }
-
+  @Step("Apply category filter: {category}")
   public void applyCategoryFilter(String category) {
     WebElement categoryFilter  = driver.findElement(By.cssSelector("#nav-search-dropdown-card"));
     categoryFilter .click();
@@ -29,13 +32,13 @@ public class AmazonPage {
             By.cssSelector("#searchDropdownBox option[value='search-alias=" + category + "-intl-ship']"));
     categoryOption.click();
   }
-
+  @Step("Search for keyword: {keyword}")
   public void searchFor(String keyword) {
     WebElement searchInput = driver.findElement(By.cssSelector("#twotabsearchtextbox"));
     searchInput.sendKeys(keyword);
     searchInput.submit();
   }
-
+  @Step("Get search results")
   public List<WebElement> getSearchResults() {
     return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
             By.cssSelector("[data-component-type='s-search-result']")));

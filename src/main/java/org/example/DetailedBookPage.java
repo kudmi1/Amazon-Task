@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.qameta.allure.Step;
+
 import java.time.Duration;
 
 public class DetailedBookPage {
@@ -19,7 +21,7 @@ public class DetailedBookPage {
     this.bookUrl = bookUrl;
     this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
   }
-
+  @Step("Extract book details")
   public Book extractBookDetails() {
     driver.get(bookUrl);
 
