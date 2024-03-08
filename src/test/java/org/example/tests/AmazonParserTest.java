@@ -4,11 +4,22 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 
+import io.qameta.allure.Allure;
+import io.qameta.allure.Description;
+import io.qameta.allure.Issue;
+import io.qameta.allure.Link;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class AmazonParserTest extends TestBase {
   @Test
+  @Severity(SeverityLevel.NORMAL)
+  @Description("Search for a book and check if it is present in the search results")
+  @Link("https://www.amazon.com")
+  @Issue("BUG-12345")
   public void testAmazonSearch() {
     AmazonPage amazonPage = new AmazonPage(driver);
     amazonPage.goToHomePage();
