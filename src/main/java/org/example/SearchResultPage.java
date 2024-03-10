@@ -1,6 +1,5 @@
 package org.example;
 
-import org.example.Book;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import io.qameta.allure.Step;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +37,6 @@ public class SearchResultPage {
     }
     return authorText;
   }
-  @Step("Extract list of books")
   public ArrayList<Book> extractBooks() {
     ArrayList<Book> listOfBooks = new ArrayList<>();
     for (WebElement element : searchResults) {
@@ -74,7 +71,6 @@ public class SearchResultPage {
     }
     return listOfBooks;
   }
-  @Step("Print list of books")
   public void printBooks(ArrayList<Book> books) {
     for (Book book : books) {
       System.out.println(book);
