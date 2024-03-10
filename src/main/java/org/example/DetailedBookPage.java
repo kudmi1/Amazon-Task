@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.qameta.allure.Step;
 
 import java.time.Duration;
 
@@ -43,7 +44,6 @@ public class DetailedBookPage {
 
     return expectedBook;
   }
-
   private String getPrice() {
     WebElement priceElement;
     try {
@@ -71,7 +71,6 @@ public class DetailedBookPage {
     }
     return priceElement.getText().replace("$", "");
   }
-
   private String formatAuthorText(String author) {
     author = author.replace("by ", "").trim();
     author = author.replaceAll("\\(Author\\)", "").trim();

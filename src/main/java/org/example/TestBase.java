@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class TestBase {
+  // protected WebDriver driver;
   protected WebDriver driver;
   protected WebDriverWait wait;
 

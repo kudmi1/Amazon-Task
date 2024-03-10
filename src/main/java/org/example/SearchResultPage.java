@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.qameta.allure.Step;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,6 @@ import java.util.List;
 public class SearchResultPage {
   private List<WebElement> searchResults;
   private WebDriverWait wait;
-
   public SearchResultPage(List<WebElement> searchResults, WebDriver driver) {
     this.searchResults = searchResults;
     this.wait = new WebDriverWait(driver, Config.DURATION);

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 // import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.qameta.allure.Step;
 
 import java.util.List;
 
@@ -17,7 +18,6 @@ public class AmazonPage {
     this.driver = driver;
     wait = new WebDriverWait(driver, Config.DURATION);
   }
-
   public void goToHomePage() {
     driver.get(Config.AMAZON_URL);
   }
@@ -34,10 +34,6 @@ public class AmazonPage {
     searchInput.submit();
   }
   public List<WebElement> getSearchResults() {
-  //   return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
-  //           // By.cssSelector("[data-component-type='s-search-result']")));
-  //           By.xpath("//div[@data-component-type='s-search-result']")));
-
     return driver.findElements(By.xpath("//div[@data-component-type='s-search-result']"));
   }
 }

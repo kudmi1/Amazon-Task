@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Mar 10 18:51:22 EET 2024","Sun Mar 10 18:51:33 EET 2024","10946","","org.example.tests.AmazonParserTest","","org.example.tests.AmazonParserTest","testAmazonSearch","testAmazonSearch()","ТЕСТ АМАЗОНА"
