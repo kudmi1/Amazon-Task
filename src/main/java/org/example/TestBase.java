@@ -15,9 +15,10 @@ public class TestBase {
 
   @BeforeEach
   public void setUp() {
-    ChromeOptions options = new ChromeOptions();
-    options.addArguments("--headless");
-    driver = new ChromeDriver(options);
+    // ChromeOptions options = new ChromeOptions();
+    // options.addArguments("--headless");
+    // driver = new ChromeDriver(options);
+    driver = new ChromeDriver();
     wait = new WebDriverWait(driver, Config.DURATION);
   }
 

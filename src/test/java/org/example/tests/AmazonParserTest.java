@@ -24,12 +24,13 @@ public class AmazonParserTest extends TestBase {
     searchResultPage.printBooks(listOfBooks);
     String expectedBookUrl = Config.BOOK_TO_CHECK_URL;
     DetailedBookPage detailedBookPage = new DetailedBookPage(driver, expectedBookUrl);
-
     Book expectedBook = detailedBookPage.extractBookDetails();
-    assertBookFound(listOfBooks, expectedBook);
+
+    assertTrue(listOfBooks.contains(expectedBook), "Expected book not found");
   
   }
-  public void assertBookFound(ArrayList<Book> listOfBooks, Book expectedBook) {
-    assertTrue(listOfBooks.contains(expectedBook), "Expected book not found");
-  }
+  // public void assertBookFound(ArrayList<Book> listOfBooks, Book expectedBook) {
+  //   assertTrue(listOfBooks.contains(expectedBook), "Expected book not found");
+    
+  // }
 }
